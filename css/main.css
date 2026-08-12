@@ -1,0 +1,636 @@
+* {margin: 0; padding: 0}
+
+/* whole body stuff */
+
+body
+	{
+	margin: 0;
+	background-color: black;
+	color: white;
+	font-family: "Kulim Park";
+	font-size: 1.2rem;
+	animation: fadeIn 0.5s ease-in forwards;
+	}
+
+
+/* header stuff */
+
+header
+	{
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	background-color: rgb(20, 20, 20);
+	height: auto;
+	min-height: 80px;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+	color: white;
+	box-shadow: 0 5px 40px rgba(0, 0, 0, 1);
+	transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+	}
+
+#trans-bg
+	{
+	background-color: rgba(20, 20, 20, 0);
+	box-shadow: none;
+	}
+
+#header-logo
+	{
+	width: clamp(150px, 12.5%, 500px);
+	padding: 5px;
+	}
+
+#header-nav
+	{
+    display: flex;
+	align-items: center;
+	padding-right: 1%;
+	font-size: clamp(0.9rem, 1.25vw, 1rem);
+	}
+
+#header-nav a
+	{
+	padding: 15px 2vw;
+	letter-spacing: 0.05rem;
+	}
+
+#contact-button-container
+	{
+	padding: 20px 10px 20px;
+	margin: 1%;
+	}
+
+#header-contact-button
+	{
+	background-color: goldenrod;
+	border: 2px solid goldenrod;
+	color: black;
+	font-weight: bold;
+	transition: background-color 0.25s ease, color 0.25s ease;
+	}
+
+#header-contact-button:hover
+	{
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+	}
+
+
+/* header dropdown menu stuff */
+
+#artist-link-container
+	{
+	position: relative;
+	}
+
+#nav-dropdown-menu
+	{
+	background-color: rgb(20, 20, 20);
+	left: 0;
+	right: 0;
+	padding: 12.5px 5.5px 12.5px 5px;
+	border-radius: 0.5vw;
+	text-align: center;
+	display: none;
+	min-width: 150px;
+	box-shadow: 0 0 40px rgba(0, 0, 0, 1);
+	}
+
+#artist-link
+	{
+	display: block;
+	}
+
+#artist-link-container:hover #nav-dropdown-menu
+	{
+	position: absolute;
+	display: block;
+	opacity: 1;
+	transition: opacity 0.25s ease;
+	@starting-style {opacity: 0;}		/* This is necessary because the opacity transition needs a starting value to work, and it doesn't seem to detect the opacity set for the element outside of this code block. */
+	margin-left: 50%;
+	transform: translateX(-50%);
+	}
+
+#nav-dropdown-menu a
+	{
+	display: block;
+	padding: 10px;
+	font-size: clamp(0.875rem, 1.125vw, 1rem);
+	letter-spacing: 0.05rem;
+	}
+
+
+/* general main section stuff */
+
+main
+	{
+	margin: 0 auto;
+	}
+
+section
+	{
+	padding: 50px 0 50px;
+	color: white;
+	background-color: black;
+	}
+
+.liquid-container
+	{
+	margin: 0 auto;
+	width: 90%;
+	max-width: 1150px;
+	}
+
+.alt-bg
+	{
+	background-color: rgb(20, 20, 20);
+	}
+
+#our-team-section
+	{
+	padding-bottom: 0;
+	}
+
+h2
+	{
+	text-align: center;
+	padding-bottom: 1.5px;
+	margin-bottom: 30px;
+	}
+
+p
+	{
+	text-align: center;
+	font-family: "Roboto";
+	font-weight: 330;
+	font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+	line-height: 2rem;
+	margin-top: 30px;
+	}
+
+ul
+	{
+	list-style-type: none;
+	padding-inline-start: 0;
+	}
+
+a:link
+	{
+	text-decoration: underline 1.5px rgba(255, 255, 255, 0);
+	text-underline-offset: 2.5px;
+	transition: color 0.25s ease, text-decoration-color 0.25s ease;
+	color: white;
+	}
+
+a:visited
+	{
+	color: white;
+	}
+
+a:hover
+	{
+	cursor: pointer;
+	text-decoration-color: rgba(218, 165, 32, 1);
+	}
+
+q::before
+	{
+	content: "\2018"
+	}
+
+q::after
+	{
+	content: "\2019"
+	}
+
+li, dl
+	{
+	font-family: "Roboto";
+	font-weight: 330;
+	line-height: 1.75rem;
+	font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+	}
+
+.gradient-trans-grey-to-white
+	{
+	height: 50px;
+	}
+
+/* hero stuff */
+
+#hero-section
+	{
+	position: relative;
+	width: 100%;
+	margin: -88px 0 0;
+	}
+
+#home-hero-img
+	{
+	width: 100%;
+	min-height: 400px;
+	object-fit: cover;
+	border-bottom: 1px solid rgb(20, 20, 20);
+	filter: brightness(45%);
+	display: block;
+	}
+
+@keyframes fadeIn
+	{
+	from {opacity: 0;}
+	to {opacity: 1;}
+	}
+
+#hero-text-container
+	{
+	width: 90%;
+	max-width: 1250px;
+	margin: 0 auto;
+	position: absolute;
+	top: 60%;
+	transform: translateY(-50%);
+	left: 0;
+	right: 0;
+	z-index: 1;
+	opacity: 0;
+	animation: fadeIn 0.5s ease-in 0.5s forwards;
+	}
+
+#hero-text
+	{
+	color: white;
+	max-width: max-content;
+	}
+
+h1.hero-headline
+	{
+	font-size: max(2.5rem, 3.5vw);
+	padding-bottom: 15px;
+	text-align: left;
+	}
+
+.action-button
+	{
+	width: auto;
+	height: 50px;
+	background-color: goldenrod;
+	border: 2px solid goldenrod;
+	display: block;
+	margin: 0 auto;
+	padding: 0 5%;
+	font-size: clamp(1rem, 1.25vw, 1.25rem);
+	font-weight: bold;
+	letter-spacing: 0.05rem;
+	font-family: "Kulim Park";
+	transition: background-color 0.25s ease, color 0.25s ease;
+	}
+
+button.action-button:hover
+	{
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+	cursor: pointer;
+	}
+
+#book-now-button
+	{
+	margin: 0 auto 0 25%;
+	}
+
+
+/* nav bar links */
+
+nav a:link
+	{
+	font-weight: 549;
+	color: white;
+	text-decoration: none;
+	}
+
+nav a:visited
+	{
+	color: white;
+	}
+
+nav a:hover
+	{
+	color: goldenrod;
+	}
+
+
+/* artist cards */
+
+.cards-div
+	{
+	width: 100%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	row-gap: 15px;
+	column-gap: 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	}
+
+.card-container
+	{
+	background-color: black;
+	display: grid;
+	place-items: center;
+	position: relative;
+	}
+
+div.card-container img
+	{
+	width: 100%;
+	filter: grayscale(100%) brightness(90%);
+	display: block;
+	transition: opacity 0.25s ease;
+	}
+
+div.card-container:hover img
+	{
+	opacity: 50%;
+	}
+
+.artist-card-buttons-container
+	{
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.25s ease;
+	}
+
+.artist-card-buttons
+	{
+	display: block;
+	position: relative; /* Check to see if this line is necessary when finished */
+	margin: 0 auto 10%;
+	width: 100px;
+	height: 35px;
+	background-color: transparent;
+	border: 2px solid;
+	border-color: white;
+	color: white;
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: bold;
+	letter-spacing: 0.05rem;
+	transition: border-color 0.25s ease, color 0.25s ease;
+	}
+
+div.card-container:hover .artist-card-buttons-container
+	{
+	opacity: 100%;
+	}
+
+.artist-card-buttons:hover
+	{
+	border-color: goldenrod;
+	color: goldenrod;
+	cursor: pointer;
+	}
+
+.label-container
+	{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(20, 20, 20, 0.75);
+	color: white;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0;
+	padding: 3%;
+	position: absolute;
+	bottom: 0;
+	container-type: size;
+	height: 30%;
+	}
+
+.label-container p
+	{
+	margin: 0;
+	}
+
+.artist-name
+	{
+	font-size: clamp(5px, 11cqw, 18px);
+	font-weight: 400;
+	padding-top: 2px;
+	}
+
+.artist-position
+	{
+	font-style: italic;
+	font-size: clamp(5px, 11cqw, 16px);
+	padding-bottom: 2px;
+	}
+
+
+/* awards */
+
+#awards-div
+	{
+	width: 88%;
+	max-width: 900px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 30px;
+	row-gap: 30px;
+	padding-top: 30px;
+	text-align: center;
+	}
+
+
+div.award-container img
+	{
+	width: 100%;
+	max-width: 250px;
+	box-shadow: 0 0 1em rgb(0, 0, 0);
+	filter: brightness(85%) grayscale(25%);
+	}
+
+
+/* Footer stuff */
+
+footer
+	{
+	background-color: black;
+	color: white;
+	margin: 0;
+	padding: 50px 0;
+	border-top: 1px solid white;
+	}
+
+#footer-grid
+	{
+	width: 75%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	column-gap: 75px;
+	}
+
+footer h2
+	{
+	margin-bottom: 15px;
+	}
+
+footer p, footer dl
+	{
+	margin-top: 0;
+	font-size: clamp(1rem, 1.25vw, 1.125rem);
+	line-height: 1.5;
+	}
+
+.footer-column-container
+	{
+	width: auto;
+	margin: 0 auto;
+	padding-bottom: 30px;
+	}
+
+.footer-column-container p
+	{
+	text-align: left;
+	padding-bottom: 10px;
+	}
+
+#address-container
+	{
+	margin: 0;
+	width: 150px;
+	}
+
+#opening-hours-list
+	{
+	display: grid;
+	grid-template-columns: max-content auto;
+	gap: 0 20px;
+	}
+
+#social-media-link-container
+	{
+	display: flex;
+	justify-content: center;
+	}
+
+.social-media-icons
+	{
+	width: 55px;
+	text-align: center;
+	}
+
+.social-media-icons:link
+	{
+	text-decoration: none;
+	}
+
+.social-media-icons:hover
+	{
+	color: goldenrod;
+	}
+
+#facebook-icon
+	{
+	font-size: 40px;
+	}
+
+#instagram-icon
+	{
+	font-size: 41px;
+	}
+
+.copyright-text
+	{
+	font-size: 0.875rem;
+	margin-top: 50px;
+	}
+
+div.article-container
+	{
+	display: flex;
+	width: 80%;
+	margin: 0 auto;
+	gap: 5%;
+	}
+
+div.article-container img
+	{
+	width: 45%;
+	max-width: 400px;
+	filter: grayscale(100%) brightness(90%);
+	aspect-ratio: 1/1;
+	align-self: start;
+	}
+
+div.article-container div
+	{
+	flex-grow: 1;
+	}
+
+
+
+
+
+/* Media queries */
+
+@media (max-width: 768px)
+	{
+	.cards-div {grid-template-rows: 1fr 1fr 1fr;}
+	.cards-div {grid-template-columns: 1fr 1fr;}
+	#footer-grid {grid-template-rows: 1fr 1fr;}
+	#footer-grid {grid-template-columns: 1fr;}
+
+	#home-hero-img {filter: brightness(30%);}
+	#hero-text {margin: 0 auto;}
+	#hero-text-container {top: auto; bottom: 0%}
+	h1.hero-headline {text-align: center;}
+	#book-now-button {margin: 0 auto;}
+
+	}
+
+@media (max-width: 640px)
+	{
+	#awards-div {grid-template-columns: 1fr;}
+	}
+
+
+
+
+
+@keyframes decoration
+	{
+	from {width: 0px;}
+	to {width: 75px;}
+	}
+
+.text-decoration
+	{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
+
+.text-decoration::before, .text-decoration::after
+	{
+	content: "";
+	display: flex;
+	background-color: white;
+	height: 1px;
+	width: 0px;
+	margin: 0 15px;
+	animation-name: decoration;
+	animation-delay: 0.75s;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+	}
