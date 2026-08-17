@@ -92,7 +92,7 @@ header
 	left: 0;
 	right: 0;
 	padding: 12.5px 5.5px 12.5px 5px;
-	border-radius: 0.5vw;
+	border-radius: 5px;
 	text-align: center;
 	display: none;
 	min-width: 150px;
@@ -110,9 +110,9 @@ header
 	display: block;
 	opacity: 1;
 	transition: opacity 0.25s ease;
-	@starting-style {opacity: 0;}		/* This is necessary because the opacity transition needs a starting value to work, and it doesn't seem to detect the opacity set for the element outside of this code block. */
 	margin-left: 50%;
 	transform: translateX(-50%);
+	@starting-style {opacity: 0;}		/* This is necessary because the opacity transition needs a starting value to work, and it doesn't seem to detect the opacity set for the element outside of this code block. */
 	}
 
 #nav-dropdown-menu a
@@ -558,7 +558,8 @@ footer p, footer dl
 
 div.article-container
 	{
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	width: 80%;
 	margin: 0 auto;
 	gap: 5%;
@@ -566,8 +567,8 @@ div.article-container
 
 div.article-container img
 	{
-	width: 45%;
-	max-width: 400px;
+	width: 100%;
+	max-width: 300px;
 	filter: grayscale(100%) brightness(90%);
 	aspect-ratio: 1/1;
 	align-self: start;
@@ -586,22 +587,36 @@ div.article-container div
 
 @media (max-width: 768px)
 	{
-	.cards-div {grid-template-rows: 1fr 1fr 1fr;}
-	.cards-div {grid-template-columns: 1fr 1fr;}
-	#footer-grid {grid-template-rows: 1fr 1fr;}
-	#footer-grid {grid-template-columns: 1fr;}
-
+	.cards-div {grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr;}
+	#footer-grid {grid-template-rows: 1fr 1fr; grid-template-columns: 1fr;}
 	#home-hero-img {filter: brightness(30%);}
 	#hero-text {margin: 0 auto;}
-	#hero-text-container {top: auto; bottom: 0%}
+	#hero-text-container {top: auto; bottom: 0%;}
 	h1.hero-headline {text-align: center;}
 	#book-now-button {margin: 0 auto;}
-
+	div.article-container {grid-template-columns: 1fr; grid-template-rows: 2, 1fr; align-items: start;}
+	div.article-container img {max-width: 500px; justify-self: center;}
 	}
 
 @media (max-width: 640px)
 	{
 	#awards-div {grid-template-columns: 1fr;}
+	}
+
+@media (max-width: 500px)
+	{
+	header {flex-direction: column; justify-content: center;}
+	#header-logo {max-width: 140px;}
+	#header-nav {padding-right: 0; margin-top: -10px;}
+	#header-nav a {padding: 15px 3vw;}
+	#contact-button-container {padding: 0; margin: 0;}
+	#header-contact-button {background-color: rgba(0, 0, 0, 0); color: white; border: none;}
+	#header-contact-button:hover {color: rgba(218, 165, 32, 1);}
+	#hero-section {margin: -130px 0 0;}
+	h1.hero-headline {font-size: max(1.75rem, 8vw);}
+	h2 {font-size: max(1.25rem, 7.25vw);}
+	.cards-div {grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; grid-template-columns: 1fr;}
+	#nav-dropdown-menu {top: 40px;}
 	}
 
 
@@ -611,7 +626,7 @@ div.article-container div
 @keyframes decoration
 	{
 	from {width: 0px;}
-	to {width: 75px;}
+	to {width: 10%;}
 	}
 
 .text-decoration
