@@ -278,6 +278,7 @@ h1.hero-headline
 	width: auto;
 	height: 50px;
 	background-color: goldenrod;
+	color: black;
 	border: 2px solid goldenrod;
 	display: block;
 	margin: 0 auto;
